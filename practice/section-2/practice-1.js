@@ -1,13 +1,13 @@
 function count_same_elements(collection) {
   //在这里写入代码
-  var res = [];
-  var Items = {};
-  for(var i=0; i<collection.length; i++){
-    var Item = collection[i];
-    Items[Item] = Items[Item] ? Items[Item]+1 : 1;
+  var result = [];
+  var items = {};
+  for (var i = 0; i < collection.length; i++) {
+    var item = collection[i];
+    items[item] = items[item] ? items[item] + 1 : 1;
   }
-  for(var Element in Items){
-    res.push({key: Element, count:Items[Element]});
+  for (var Element in items) {
+    result.push({key: Element, count: items[Element]});
   }
-  return res;
+  return result;
 }
