@@ -3,7 +3,9 @@ function collect_same_elements(collection_a, object_b) {
   var collection_b = object_b.value;
   for (var i = 0; i < collection_a.length; i++) {
     var item = findSameItem(collection_b, collection_a[i].key);
-    item ? result.push(item) : '';
+    if (item) {
+      result.push(item);
+    }
   }
   return result;
 }
