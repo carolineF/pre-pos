@@ -1,6 +1,5 @@
 function create_updated_collection(collection_a, object_b) {
-  //在这里写入代码
-  var collection_c = countCollection(collection_a);
+  var collection_c = countSameElements(collection_a);
   var collection_b = object_b.value;
   var result = collection_c;
   for (var i = 0; i < collection_b.length; i++) {
@@ -11,7 +10,6 @@ function create_updated_collection(collection_a, object_b) {
   }
   return result;
 }
-
 function findIndex(collection_a, data) {
   for (var i = 0; i < collection_a.length; i++) {
     if (collection_a[i].key == data) {
@@ -20,21 +18,24 @@ function findIndex(collection_a, data) {
   }
   return -1;
 }
-
-function countCollection(collection) {
+function countSameElements(collection) {
   var result = [];
+  var items = processCollectionData(collection);
+  for (var element in items) {
+    result.push({key: element, count: items[element]});
+  }
+  return result;
+}
+function processCollectionData(collection) {
   var items = {};
   for (var i = 0; i < collection.length; i++) {
-    var item = collection[i];
     var count = 1;
+    var item = collection[i];
     if (item.length > 1) {
       count = parseInt(item.split('-')[1]);
       item = item.split('-')[0];
     }
     items[item] = items[item] ? items[item] + 1 : count;
   }
-  for (var element in items) {
-    result.push({key: element, count: items[element]});
-  }
-  return result;
+  return items;
 }

@@ -1,5 +1,4 @@
 function create_updated_collection(collection_a, object_b) {
-  //在这里写入代码
   var collection_b = object_b.value;
   var result = collection_a;
   for (var i = 0; i < collection_b.length; i++) {
@@ -10,7 +9,6 @@ function create_updated_collection(collection_a, object_b) {
   }
   return result;
 }
-
 function findIndex(collection_a, data) {
   for (var i = 0; i < collection_a.length; i++) {
     if (collection_a[i].key == data) {

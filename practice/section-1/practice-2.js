@@ -1,18 +1,16 @@
 function collect_same_elements(collection_a, collection_b) {
-  //在这里写入代码
   var result = [];
   for (var i = 0; i < collection_a.length; i++) {
-    if (findIndex(collection_b,collection_a[i]) !== -1) {
-      result.push(collection_a[i]);
-    }
+    var item = findSameItem(collection_b, collection_a[i]);
+    item ? result.push(item) : '';
   }
   return result;
 }
-function findIndex(collection_a, data) {
-  for (var i = 0; i < collection_a[0].length; i++) {
-    if (collection_a[0][i]== data) {
-      return i;
+function findSameItem(collection, data) {
+  for (var i = 0; i < collection.length; i++) {
+    if (collection[i].indexOf(data) !== -1) {
+      return data;
     }
   }
-  return -1;
+  return undefined;
 }
